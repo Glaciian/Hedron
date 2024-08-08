@@ -1,5 +1,7 @@
 #pragma once
 
+// Application definitions and structure.
+
 #include "Hedron/Core.h"
 
 namespace Hedron {
@@ -13,8 +15,7 @@ namespace Hedron {
 		void Run();
 	};
 
-	//to be defined by clients sandbox
+	// The create application function is defined by the application.
 	Application* CreateApplication();
-
 
 }	

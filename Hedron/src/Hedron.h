@@ -1,10 +1,9 @@
 #pragma once
 
-// For use by Hedron applications only.
-
+// Hedron Engine's application support.
 
 #include "Hedron/Application.h"
 
-// ------------- Entry Point -------------
+// ------- Application Entry Point -------
 #include "Hedron/EntryPoint.h"
 // _______________________________________
