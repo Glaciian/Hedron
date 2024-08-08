@@ -17,7 +17,7 @@ namespace Hedron {
 
 	}
 
-	// Simple application loop implemented for testing.
+	// REFRENCE: Simple application loop, implemented for testing.
 	void Application::Run()
 	{
 		while (true);

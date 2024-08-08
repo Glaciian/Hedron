@@ -13,13 +13,15 @@ namespace Hedron {
 	{ 
 		// Set the logging pattern to include the timestamp, logger name, and log message.
 		spdlog::set_pattern("%^[%T] %n: %v%$");
+		
+		// REFRENCE: The implementation of "spdlog::level::trace" should be properly abstracted.
 
-		// Create a shared pointer to the core logger instance. The logger will be used for logging core events.
+		// Create a shared pointer to the core logger instance. 
 		s_CoreLogger = spdlog::stdout_color_mt("CORE");
 		s_CoreLogger->set_level(spdlog::level::trace); 
 
-		// The logger will be used for logging application events.
 
+		// Create a shared pointer to the application logger instance.
 		s_ApplicationLogger = spdlog::stdout_color_mt("APP");
 		s_ApplicationLogger->set_level(spdlog::level::trace);
 	}

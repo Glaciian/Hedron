@@ -3,11 +3,13 @@
 class Sandbox : public Hedron::Application
 {
 public:
+	// Sandbox Constructor.
 	Sandbox()
 	{
 
 	}
 
+	// Sandbox Destructor.
 	~Sandbox()
 	{
 

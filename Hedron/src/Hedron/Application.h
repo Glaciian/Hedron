@@ -11,7 +11,7 @@ namespace Hedron {
 	public:
 		Application();
 		virtual ~Application();
-			
+		
 		void Run();
 	};
 
