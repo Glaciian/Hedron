@@ -16,5 +16,6 @@ public:
 
 Hedron::Application* Hedron::CreateApplication()
 {
+	// Create a new instance of the Sandbox class and return a pointer to it.
 	return new Sandbox();
 }

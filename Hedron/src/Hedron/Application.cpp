@@ -5,13 +5,13 @@
 
 namespace Hedron {
 
-	// Application Constructor
+	// Application Constructor.
 	Application::Application()
 	{
 
 	}
 
-	// Application Destructor
+	// Application Destructor.
 	Application::~Application()
 	{
 

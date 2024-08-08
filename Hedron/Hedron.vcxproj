@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hedron\Log.h" />
     <ClInclude Include="src\Hedron\Application.h" />
     <ClInclude Include="src\Hedron\Core.h" />
     <ClInclude Include="src\Hedron.h" />
     <ClInclude Include="src\Hedron\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hedron\Log.cpp" />
     <ClCompile Include="src\Hedron\Application.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -67,7 +69,7 @@
       <PreprocessorDefinitions>HDE_PLATFORM_WINDOWS;HDE_BUILD_DLL;_WINDLL;%(PreproccessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Hedron\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Hedron\src;$(SolutionDir)\Hedron\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -83,7 +85,7 @@
       <PreprocessorDefinitions>HDE_PLATFORM_WINDOWS;HDE_BUILD_DLL;_WINDLL;%(PreproccessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Hedron\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Hedron\src;$(SolutionDir)\Hedron\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
