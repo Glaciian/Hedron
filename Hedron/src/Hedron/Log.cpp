@@ -7,7 +7,6 @@ namespace Hedron {
 	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
 	std::shared_ptr<spdlog::logger> Log::s_ApplicationLogger;
 
-
 	// Initialize the Log class.
 	void Log::Init()
 	{ 
@@ -19,7 +18,6 @@ namespace Hedron {
 		// Create a shared pointer to the core logger instance. 
 		s_CoreLogger = spdlog::stdout_color_mt("CORE");
 		s_CoreLogger->set_level(spdlog::level::trace); 
-
 
 		// Create a shared pointer to the application logger instance.
 		s_ApplicationLogger = spdlog::stdout_color_mt("APP");

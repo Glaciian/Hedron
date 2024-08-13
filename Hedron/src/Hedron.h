@@ -1,6 +1,6 @@
 #pragma once
 
-// Hedron Engine's application support.
+// Hedron Engine's application support.0
 
 #include "Hedron/Application.h"
 #include "Hedron/Log.h"
