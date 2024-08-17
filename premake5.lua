@@ -23,6 +23,13 @@ project "Hedron"
         
         -- Copy the built DLL to the Sandbox project's bin directory
         postbuildcommands { ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox") }
+
+    -- Apply platform-specific settings for macOS
+    filter "system:macosx"
+        cppdialect "C++17"
+        staticruntime "On"
+        systemversion "latest"
+        defines { "HDE_PLATFORM_MACOSX", "HDE_BUILD_DLL" }
     
     -- Apply configuration-specific settings
     filter "configurations:Debug"
@@ -52,6 +59,13 @@ project "Sandbox"
         staticruntime "On"
         systemversion "latest"
         defines { "HDE_PLATFORM_WINDOWS" }
+
+    -- Apply platform-specific settings for macOS
+    filter "system:macosx"
+        cppdialect "C++17"
+        staticruntime "On"
+        systemversion "latest"
+        defines { "HDE_PLATFORM_MACOSX", "HDE_BUILD_DLL" }
     
     -- Apply configuration-specific settings
     filter "configurations:Debug"
