@@ -12,7 +12,7 @@ project "Hedron"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
-    includedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
+    includedirs { "Hedron/vendor/spdlog/include", "Hedron/src" }
     
     -- Apply platform-specific settings for Windows
     filter "system:windows"
@@ -29,7 +29,10 @@ project "Hedron"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
-        defines { "HDE_PLATFORM_MACOSX", "HDE_BUILD_DLL" }
+        defines { "HDE_PLATFORM_MACOS", "HDE_BUILD_DLL" }
+
+        -- Post-build command to copy the built DLL to a specific directory
+        postbuildcommands { "cp %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox" }
     
     -- Apply configuration-specific settings
     filter "configurations:Debug"
@@ -65,7 +68,7 @@ project "Sandbox"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
-        defines { "HDE_PLATFORM_MACOSX", "HDE_BUILD_DLL" }
+        defines { "HDE_PLATFORM_MACOS", "HDE_BUILD_DLL" }
     
     -- Apply configuration-specific settings
     filter "configurations:Debug"
