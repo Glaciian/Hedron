@@ -1,6 +1,8 @@
 
 // Application constuctor, destructor and methods.
 
+#include "hdepch.h"
+
 #include "Hedron/Application.h"
 #include "Hedron/Events/ApplicationEvent.h"
 #include "Hedron/Log.h"

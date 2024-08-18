@@ -1,3 +1,5 @@
+#include "hdepch.h"
+
 #include <Hedron.h>
 
 class Sandbox : public Hedron::Application

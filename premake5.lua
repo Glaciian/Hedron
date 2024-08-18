@@ -4,13 +4,15 @@ workspace "Hedron"
     configurations { "Debug", "Release", "Dist" }
     outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Define the Hazel project
+-- Define the Hedron project
 project "Hedron"
     location "Hedron"
     kind "SharedLib"
     language "C++"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    pchheader "hdepch.h"
+    pchsource "Hedron/src/hdepch.cpp"
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
     sysincludedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
     

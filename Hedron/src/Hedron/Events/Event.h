@@ -2,9 +2,6 @@
 
 #include "Hedron/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Hedron {
 	// Define an enumeration for different types of events that can occur in the system.
 	// These include window-related events, application lifecycle events, and user input events.
