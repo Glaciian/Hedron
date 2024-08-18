@@ -16,6 +16,7 @@ int main(int argc, char** argv)
 	Hedron::Log::Init();
 	HDE_CORE_INFO("Core Logger Initialized.");
 	HDE_APP_INFO("Application Logger Initialized.");
+	HDE_APP_INFO("Windows users not forgotten");
 
 	// Application creation, execution and cleanup.
 	auto app = Hedron::CreateApplication();
