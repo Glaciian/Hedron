@@ -34,8 +34,12 @@ int main(int argc, char** argv)
 	// Initialization of the logger.
 	// Should be moved to an initialization function.
 	Hedron::Log::Init();
-	HDE_CORE_INFO("Core Logger Initialized.");
+	HDE_CORE_INFO("Core Logger Initialized just because.");
 	HDE_APP_INFO("Application Logger Initialized.");
+    HDE_APP_INFO("Ain't this all cool!!");
+    HDE_APP_INFO("APP INFO Example");
+    HDE_APP_WARN("APP WARN Example");
+    HDE_APP_DEBUG("APP DEBUG Example");
 
 	// Application creation, execution and cleanup.
 	auto app = Hedron::CreateApplication();
