@@ -19,3 +19,9 @@
     // Compile-time error if Hedron doesn't support the current system architecture.
     #error "Hedron doesn't support the current system architecture."
 #endif
+
+// Definition shorten the use of to_string for event types.
+#define ETS ToString()
+
+// Bit field for applying multiple event categories to a single event type. 
+#define BIT(x) (1 << x)

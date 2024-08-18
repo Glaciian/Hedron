@@ -12,7 +12,7 @@ project "Hedron"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
-    sysincludedirs { "Hedron/vendor/spdlog/include", "Hedron/src" }
+    sysincludedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
     
     -- Apply platform-specific settings for Windows
     filter "system:windows"
