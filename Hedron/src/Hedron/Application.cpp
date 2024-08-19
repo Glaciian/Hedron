@@ -12,7 +12,7 @@ namespace Hedron {
 	// Application Constructor.
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	// Application Destructor.
@@ -24,11 +24,10 @@ namespace Hedron {
 	// REFRENCE: Simple application loop, implemented for testing.
 	void Application::Run()
 	{
-		// Test Logging a dummy event.
-		WindowResizeEvent e(1280, 720);
-		HDE_APP_TRACE(e.ETS);
 
-		while (true);
+		while (m_Running)
+		{
+			//m_Window->OnUpdate();
+		}
 	}
-
 }

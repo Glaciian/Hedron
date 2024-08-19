@@ -4,6 +4,7 @@
 
 #include "Hedron/Core.h"
 #include "Events/Event.h"
+#include "Window.h"
 
 namespace Hedron {
 
@@ -18,6 +19,12 @@ namespace Hedron {
 		// Main run loop for the application.
 		// This method is responsible for starting the application and managing its lifecycle.
 		void Run();
+
+	private:
+		// TODO: This is platform independent.
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
+
 	};
 
 	// The create application function is defined by the application.

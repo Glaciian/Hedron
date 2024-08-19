@@ -20,6 +20,15 @@
     #error "Hedron doesn't support the current system architecture."
 #endif
 
+#ifdef HDE_ENABLE_ASSERTS
+    #define HDE_ASSERT(x, ...) { if(!(x)) { HDE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+    #define HDE_CORE_ASSERT(x, ...) { if(!(x)) { HDE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+    #define HDE_ASSERT(x, ...)
+    #define HDE_CORE_ASSERT(x, ...)
+#endif
+
+// TODO: This should be handled by the Event system.
 // Definition shorten the use of to_string for event types.
 #define ETS ToString()
 

@@ -15,7 +15,10 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Hedron/Log.h"
+
+
 // Preprocessor check for Windows platforms.
 #ifdef HDE_PLATFORM_WINDOWS
-	#include <WaaSApi.h>
+	#include <Windows.h>
 #endif

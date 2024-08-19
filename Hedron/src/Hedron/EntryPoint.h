@@ -16,7 +16,6 @@ int main(int argc, char** argv)
 	Hedron::Log::Init();
 	HDE_CORE_INFO("Core Logger Initialized.");
 	HDE_APP_INFO("Application Logger Initialized.");
-	HDE_APP_INFO("Windows users not forgotten");
 
 	// Application creation, execution and cleanup.
 	auto app = Hedron::CreateApplication();
@@ -38,8 +37,6 @@ int main(int argc, char** argv)
 	Hedron::Log::Init();
 	HDE_CORE_INFO("Core Logger Initialized just because.");
 	HDE_APP_INFO("Application Logger Initialized.");
-	HDE_APP_INFO("Ain't this all cool!!");
-	HDE_APP_INFO("App Update Test");
 
 	// Application creation, execution and cleanup.
 	auto app = Hedron::CreateApplication();
