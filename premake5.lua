@@ -4,6 +4,12 @@ workspace "Hedron"
     configurations { "Debug", "Release", "Dist" }
     outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hedron/vendor/glfw/include"
+
+include "Hedron/vendor/GLFW"
+
 -- Define the Hedron project
 project "Hedron"
     location "Hedron"
@@ -14,7 +20,8 @@ project "Hedron"
     pchheader "hdepch.h"
     pchsource "Hedron/src/hdepch.cpp"
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
-    sysincludedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
+    sysincludedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src", "%{prj.name}/vendor/glfw/include" }
+    links { "GLFW", "opengl32.lib" }
     
     -- Apply platform-specific settings for Windows
     filter "system:windows"
