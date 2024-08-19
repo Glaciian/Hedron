@@ -5,7 +5,7 @@ namespace Hedron {
 
 	static bool s_GLFWInitialized = false;
 
-	Window* Window::Create(const WindowProps& props)
+	Window* Window::CreateWindowsWindow(const WindowProps& props)
 	{
 		return new WindowsWindow(props);
 	}

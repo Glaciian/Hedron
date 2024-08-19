@@ -12,7 +12,16 @@ namespace Hedron {
 	// Application Constructor.
 	Application::Application()
 	{
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		#ifdef HDE_PLATFORM_WINDOWS
+			m_Window = std::unique_ptr<Window>(Window::CreateWindowsWindow());
+		
+		#elif HDE_PLATFORM_MACOS
+			m_Window = std::unique_ptr<Window>(Window::CreateMacOSWindow());
+		#else
+			HDE_CORE_ERROR("Unsupported platform fo window creation.");
+		#endif
+
+
 	}
 
 	// Application Destructor.
@@ -27,7 +36,7 @@ namespace Hedron {
 
 		while (m_Running)
 		{
-			//m_Window->OnUpdate();
+			m_Window->OnUpdate();
 		}
 	}
 }
