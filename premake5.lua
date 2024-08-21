@@ -12,7 +12,6 @@ project "Hedron"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
-    includedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
     
     -- Apply platform-specific settings for Windows
     filter "system:windows"
@@ -21,6 +20,7 @@ project "Hedron"
         systemversion "latest"
         pchheader "hdepch.h"
         pchsource "Hedron/src/hdepch.cpp"
+        includedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
         defines { "HDE_PLATFORM_WINDOWS", "HDE_BUILD_DLL" }
         
         -- Copy the built DLL to the Sandbox project's bin directory
@@ -31,8 +31,7 @@ project "Hedron"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "15.0"
-        pchheader "hdepch.h"
-        pchsource "Hedron/src/hdepch.cpp"
+        externalincludedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
         defines { "HDE_PLATFORM_MACOS", "HDE_BUILD_DLL" }
 
         -- Post-build command to copy the built DLL to a specific directory
@@ -57,7 +56,6 @@ project "Sandbox"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
-    includedirs { "Hedron/vendor/spdlog/include", "Hedron/src" }
     links { "Hedron" }
     
     -- Apply platform-specific settings for Windows
@@ -65,6 +63,7 @@ project "Sandbox"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
+        includedirs { "Hedron/vendor/spdlog/include", "Hedron/src" }
         defines { "HDE_PLATFORM_WINDOWS" }
 
     -- Apply platform-specific settings for macOS
@@ -72,6 +71,7 @@ project "Sandbox"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "15.0"
+        externalincludedirs { "Hedron/vendor/spdlog/include", "Hedron/src" }
         defines { "HDE_PLATFORM_MACOS", "HDE_BUILD_DLL" }
     
     -- Apply configuration-specific settings
