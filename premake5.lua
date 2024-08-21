@@ -11,16 +11,16 @@ project "Hedron"
     language "C++"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-    pchheader "hdepch.h"
-    pchsource "Hedron/src/hdepch.cpp"
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
-    sysincludedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
+    includedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/src" }
     
     -- Apply platform-specific settings for Windows
     filter "system:windows"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
+        pchheader "hdepch.h"
+        pchsource "Hedron/src/hdepch.cpp"
         defines { "HDE_PLATFORM_WINDOWS", "HDE_BUILD_DLL" }
         
         -- Copy the built DLL to the Sandbox project's bin directory
@@ -31,6 +31,8 @@ project "Hedron"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "15.0"
+        pchheader "hdepch.h"
+        pchsource "Hedron/src/hdepch.cpp"
         defines { "HDE_PLATFORM_MACOS", "HDE_BUILD_DLL" }
 
         -- Post-build command to copy the built DLL to a specific directory
@@ -55,7 +57,7 @@ project "Sandbox"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     files { "%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp" }
-    sysincludedirs { "Hedron/vendor/spdlog/include", "Hedron/src" }
+    includedirs { "Hedron/vendor/spdlog/include", "Hedron/src" }
     links { "Hedron" }
     
     -- Apply platform-specific settings for Windows
